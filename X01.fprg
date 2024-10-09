@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="t4"/>
+        <attribute name="authors" value="ASUS"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2024-10-09 04:21:01 PM"/>
+        <attribute name="created" value="QVNVUztMQVBUT1AtUDA4OUFRVkM7MjAyNC0xMC0wOTswMzoxMDozOCBQTTsyNjQy"/>
+        <attribute name="edited" value="QVNVUztMQVBUT1AtUDA4OUFRVkM7MjAyNC0xMC0wOTswNDowNDowMiBQTTszOzI3NDc="/>
+        <attribute name="edited" value="aW5ncmE7SU5HUkFURUpPWTsyMDI0LTEwLTA5OzA0OjIxOjAxIFBNOzE7MjY3MQ=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="bookprice, totalprice, lowestprice, totaltransaction" type="Real" array="False" size=""/>
+            <input variable="bookprice"/>
+            <assign variable="totalprice" expression="bookprice"/>
+            <assign variable="lowestprice" expression="bookprice"/>
+            <while expression="bookprice!=0">
+                <if expression="lowestprice&lt;bookprice">
+                    <then>
+                        <assign variable="lowestprice" expression="lowestprice"/>
+                    </then>
+                    <else>
+                        <assign variable="lowestprice" expression="bookprice"/>
+                    </else>
+                </if>
+                <input variable="bookprice"/>
+                <assign variable="totalprice" expression="totalprice+bookprice"/>
+            </while>
+            <if expression="totalprice&gt;=100">
+                <then>
+                    <assign variable="totaltransaction" expression="totalprice-lowestprice"/>
+                </then>
+                <else>
+                    <assign variable="totaltransaction" expression="totalprice"/>
+                </else>
+            </if>
+            <output expression="ToFixed(totaltransaction,2)" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
